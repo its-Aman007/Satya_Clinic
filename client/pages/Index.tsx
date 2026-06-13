@@ -64,7 +64,22 @@ export default function Index() {
                 <div className="absolute inset-0 bg-white/60"></div>
               </div>
               <div className="relative z-10 py-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+                {/* Doctor Photo and Name */}
+                <div className="flex flex-col items-start gap-4 mb-6">
+                  <div className="w-24 h-24 rounded-full border-4 border-primary overflow-hidden shadow-lg">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200"
+                      alt="Dr. Spd Drivedi"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-primary">Doctor</p>
+                    <h3 className="text-xl font-bold text-foreground">Dr. Spd Drivedi</h3>
+                  </div>
+                </div>
+
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight">
                   Expert Cardiac & Diabetic Care
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
