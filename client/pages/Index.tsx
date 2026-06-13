@@ -311,7 +311,7 @@ export default function Index() {
                 <MapPin className="text-primary w-7 h-7" />
               </div>
               <h4 className="text-lg font-semibold text-foreground mb-2">Address</h4>
-              <p className="text-muted-foreground mb-2">Maya Bhavan, Daidpur</p>
+              <p className="text-muted-foreground mb-2">Maya Bhavan, Daudpur</p>
               <p className="text-muted-foreground mb-2">Canal Road, Gorakhpur</p>
               <p className="text-muted-foreground text-sm">Uttar Pradesh, India</p>
             </div>
