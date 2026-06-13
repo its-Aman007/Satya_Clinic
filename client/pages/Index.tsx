@@ -49,44 +49,62 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-white to-accent/5 pt-12 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Expert Cardiac & Diabetic Care
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Welcome to Satya Clinic, your trusted partner in comprehensive healthcare. We specialize in cardiac and diabetic management with compassionate, personalized care for every patient.
-              </p>
-              <div className="flex gap-4">
-                <button 
-                  onClick={() => {
-                    setShowAuthModal(true);
-                    setIsSignUp(true);
-                  }}
-                  className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition font-semibold"
-                >
-                  Book Appointment
-                </button>
-                <button className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary/5 transition font-semibold">
-                  Learn More
-                </button>
+            {/* Left Column with Blurred Background */}
+            <div className="relative">
+              {/* Blurred background image */}
+              <div className="absolute inset-0 rounded-2xl overflow-hidden -z-10">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Faf040b58e2ec44bc88ce87da278fa731?format=webp&width=800&height=1200"
+                  alt="Background"
+                  className="w-full h-full object-cover blur-md opacity-20"
+                />
+                <div className="absolute inset-0 bg-white/60"></div>
+              </div>
+              <div className="relative z-10 py-8">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+                  Expert Cardiac & Diabetic Care
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                  Welcome to Satya Clinic, your trusted partner in comprehensive healthcare. We specialize in cardiac and diabetic management with compassionate, personalized care for every patient.
+                </p>
+                <div className="flex gap-4">
+                  <button
+                    onClick={() => {
+                      setShowAuthModal(true);
+                      setIsSignUp(true);
+                    }}
+                    className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition font-semibold"
+                  >
+                    Book Appointment
+                  </button>
+                  <button className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary/5 transition font-semibold">
+                    Learn More
+                  </button>
+                </div>
               </div>
             </div>
+
+            {/* Right Column with Doctor Image */}
             <div className="bg-gradient-to-br from-primary to-accent rounded-2xl p-1 overflow-hidden">
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-8 h-80 flex items-center justify-center relative overflow-hidden">
-                {/* Decorative background */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary rounded-full"></div>
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent rounded-full"></div>
-                </div>
-                <div className="relative text-center z-10">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Heart className="text-primary w-12 h-12" />
+              <div className="relative rounded-xl h-80 overflow-hidden">
+                {/* Doctor image as background */}
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Faf040b58e2ec44bc88ce87da278fa731?format=webp&width=800&height=1200"
+                  alt="Professional Healthcare"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+
+                {/* Text content */}
+                <div className="absolute inset-0 flex items-end justify-center p-8">
+                  <div className="text-center">
+                    <p className="text-white font-semibold text-lg mb-2">Professional Healthcare Services</p>
+                    <p className="text-white/90 text-sm">Trusted by patients for excellence</p>
                   </div>
-                  <p className="text-muted-foreground font-semibold">Professional Healthcare Services</p>
-                  <p className="text-sm text-muted-foreground mt-2">Trusted by patients for excellence</p>
                 </div>
               </div>
             </div>
