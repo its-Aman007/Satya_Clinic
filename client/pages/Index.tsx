@@ -227,7 +227,7 @@ export default function Index() {
               </div>
               <div className="p-6 bg-white">
                 <h4 className="text-lg font-bold text-foreground mb-2">Hospital Location</h4>
-                <p className="text-muted-foreground text-sm">Comfortable, clean, and welcoming space for patients with entertainment and seating</p>
+                <p className="text-muted-foreground text-sm">Visit us at our modern clinic facility located in Gorakhpur with easy access and convenient parking for all our valued patients</p>
               </div>
             </div>
           </div>
