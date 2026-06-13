@@ -212,7 +212,7 @@ export default function Index() {
               </div>
               <div className="p-6 bg-white">
                 <h4 className="text-lg font-bold text-foreground mb-2">Patient Waiting Area</h4>
-                <p className="text-muted-foreground text-sm">Professional workspace for patient consultations and medical record management</p>
+                <p className="text-muted-foreground text-sm">Comfortable seating and peaceful environment designed to provide patients with a relaxing experience while they wait for their consultation</p>
               </div>
             </div>
 
