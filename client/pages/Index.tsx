@@ -212,7 +212,7 @@ export default function Index() {
               </div>
               <div className="p-6 bg-white">
                 <h4 className="text-lg font-bold text-foreground mb-2">Patient Waiting Area</h4>
-                <p className="text-muted-foreground text-sm">Professional workspace for patient consultations and medical record management</p>
+                <p className="text-muted-foreground text-sm">Comfortable seating and peaceful environment designed to provide patients with a relaxing experience while they wait for their consultation</p>
               </div>
             </div>
 
@@ -227,7 +227,7 @@ export default function Index() {
               </div>
               <div className="p-6 bg-white">
                 <h4 className="text-lg font-bold text-foreground mb-2">Hospital Location</h4>
-                <p className="text-muted-foreground text-sm">Comfortable, clean, and welcoming space for patients with entertainment and seating</p>
+                <p className="text-muted-foreground text-sm">Visit us at our modern clinic facility located in Gorakhpur with easy access and convenient parking for all our valued patients</p>
               </div>
             </div>
           </div>
@@ -368,7 +368,7 @@ export default function Index() {
           {/* Map Section */}
           <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.7269146833466!2d83.3654!3d26.7598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399410f0f0f0f0f1%3A0x0!2sSatya%20Clinic!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/place/Satya+Clinic/@26.7390203,83.3728553,17z/data=!3m1!4b1!4m6!3m5!1s0x399145002d30b56f:0x106c4dfb4d795adf!8m2!3d26.7390203!4d83.3728553!16s%2Fg%2F11zfspdjmy!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
               width="100%"
               height="100%"
               style={{ border: 0 }}
