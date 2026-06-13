@@ -105,12 +105,12 @@ export default function Index() {
           <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 md:p-12">
             <div className="grid md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-1 flex justify-center">
-                <div className="w-48 h-48 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center relative overflow-hidden">
-                  {/* Decorative background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 opacity-20"></div>
-                  <div className="relative z-10">
-                    <Users className="text-white w-24 h-24" />
-                  </div>
+                <div className="w-48 h-56 bg-gradient-to-br from-primary to-accent rounded-2xl overflow-hidden shadow-xl">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Faf040b58e2ec44bc88ce87da278fa731?format=webp&width=800&height=1200"
+                    alt="Doctor at Satya Clinic"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="md:col-span-2">
@@ -138,6 +138,63 @@ export default function Index() {
                     <p className="text-foreground">Member of Indian Heart Federation & Diabetes Federation</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-4">Our Clinic Facilities</h3>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            State-of-the-art facilities designed for your comfort and care
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Doctor Cabin */}
+            <div className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition">
+              <div className="relative h-64 overflow-hidden bg-slate-200">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fccd32e758d67467fbf457a65b27b461c?format=webp&width=800&height=1200"
+                  alt="Doctor Cabin"
+                  className="w-full h-full object-cover group-hover:scale-105 transition"
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h4 className="text-lg font-bold text-foreground mb-2">Doctor Consultation Room</h4>
+                <p className="text-muted-foreground text-sm">Equipped with modern diagnostic equipment for comprehensive patient care and consultation</p>
+              </div>
+            </div>
+
+            {/* Sitting Area */}
+            <div className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition">
+              <div className="relative h-64 overflow-hidden bg-slate-200">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2F87e10399d7fc4ea79452e701a2ea0a00?format=webp&width=800&height=1200"
+                  alt="Sitting Area"
+                  className="w-full h-full object-cover group-hover:scale-105 transition"
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h4 className="text-lg font-bold text-foreground mb-2">Doctor's Office</h4>
+                <p className="text-muted-foreground text-sm">Professional workspace for patient consultations and medical record management</p>
+              </div>
+            </div>
+
+            {/* Waiting Hall */}
+            <div className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition">
+              <div className="relative h-64 overflow-hidden bg-slate-200">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2F4c1e43a762da4e2ca88d0ef7030d1ca0?format=webp&width=800&height=1200"
+                  alt="Patient Waiting Hall"
+                  className="w-full h-full object-cover group-hover:scale-105 transition"
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h4 className="text-lg font-bold text-foreground mb-2">Patient Waiting Area</h4>
+                <p className="text-muted-foreground text-sm">Comfortable, clean, and welcoming space for patients with entertainment and seating</p>
               </div>
             </div>
           </div>
