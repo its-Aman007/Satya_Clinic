@@ -69,13 +69,13 @@ export default function Index() {
                   <div className="w-24 h-24 rounded-full border-4 border-primary overflow-hidden shadow-lg">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200"
-                      alt="Dr. Spd Drivedi"
+                      alt="Dr. Spd Dwivedi"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-primary">Doctor</p>
-                    <h3 className="text-xl font-bold text-foreground">Dr. Spd Drivedi</h3>
+                    <h3 className="text-xl font-bold text-foreground">Dr. Spd Dwivedi</h3>
                   </div>
                 </div>
 
@@ -147,7 +147,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="md:col-span-2">
-                <h4 className="text-2xl font-bold text-foreground mb-2">Dr. Expert Physician</h4>
+                <h4 className="text-2xl font-bold text-foreground mb-2">Dr. Spd Dwivedi</h4>
                 <div className="flex items-center gap-2 mb-4">
                   <Award size={20} className="text-accent" />
                   <span className="text-accent font-semibold">Highly Qualified</span>
