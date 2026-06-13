@@ -368,7 +368,7 @@ export default function Index() {
           {/* Map Section */}
           <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
             <iframe
-              src="https://maps.app.goo.gl/Xz4J4hJhz1wG8vXU9"
+              src="hhttps://www.google.com/maps/place/P9QF%2BJ5R+Satya+Clinic,+Daudpur,+Gorakhpur,+Uttar+Pradesh+273001/data=!4m2!3m1!1s0x399145002d30b56f:0x106c4dfb4d795adf!18m1!1e1?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI2LjIzLjEYACDXggMqlQEsOTQyNjc3MjcsOTQyOTIxOTUsOTQyOTk1MzIsMTAwNzk2NDk4LDEwMDc5Nzc2MSwxMDA3OTY1MzUsOTQyODA1NzYsMTAwODExOTU5LDk0MjA3Mzk0LDk0MjA3NTA2LDk0MjA4NTA2LDk0MjE4NjUzLDk0MjI5ODM5LDk0Mjc1MTY4LDk0Mjc5NjE5LDEwMDc5MjU2OEICSU4%3D&skid=fb53f39b-9460-4f89-9f36-3694cfd0bf21"
               width="100%"
               height="100%"
               style={{ border: 0 }}
