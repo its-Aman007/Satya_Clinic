@@ -205,7 +205,7 @@ export default function Index() {
             <div className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition">
               <div className="relative h-64 overflow-hidden bg-slate-200">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2F87e10399d7fc4ea79452e701a2ea0a00?format=webp&width=800&height=1200"
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2F4c1e43a762da4e2ca88d0ef7030d1ca0?format=webp&width=800&height=1200"
                   alt="Sitting Area"
                   className="w-full h-full object-cover group-hover:scale-105 transition"
                 />
