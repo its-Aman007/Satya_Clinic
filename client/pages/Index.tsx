@@ -367,8 +367,7 @@ export default function Index() {
 
           {/* Map Section */}
           <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
-            <iframe
-              src="https://maps.app.goo.gl/ui2qjE4V1P9AUDUD9"
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.1678173855425!2d83.3728553!3d26.7390203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145002d30b56f%3A0x106c4dfb4d795adf!2sSatya%20Clinic!5e0!3m2!1sen!2sin!4v1781349173184!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               width="100%"
               height="100%"
               style={{ border: 0 }}
