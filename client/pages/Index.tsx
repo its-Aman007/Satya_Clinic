@@ -68,7 +68,7 @@ export default function Index() {
                 <div className="flex flex-col items-start gap-4 mb-6">
                   <div className="w-24 h-24 rounded-full border-4 border-primary overflow-hidden shadow-lg">
                     <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200"
+                      src="https://chatgpt.com/c/6a2d74cf-8214-83ee-8a3a-ef67a2a4d542"
                       alt="Dr. Spd Dwivedi"
                       className="w-full h-full object-cover"
                     />
