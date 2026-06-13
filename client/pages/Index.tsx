@@ -1,10 +1,35 @@
-import { MapPin, Phone, Clock, Award, Users } from "lucide-react";
+import { MapPin, Phone, Clock, Award, Users, Eye, EyeOff, Mail, Lock, User } from "lucide-react";
+import { useState } from "react";
 
 export default function Index() {
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(isSignUp ? "Sign up:" : "Sign in:", formData);
+    // Reset form
+    setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+    setShowAuthModal(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header/Navigation */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
@@ -35,7 +60,13 @@ export default function Index() {
                 Welcome to Satya Clinic, your trusted partner in comprehensive healthcare. We specialize in cardiac and diabetic management with compassionate, personalized care for every patient.
               </p>
               <div className="flex gap-4">
-                <button className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition font-semibold">
+                <button 
+                  onClick={() => {
+                    setShowAuthModal(true);
+                    setIsSignUp(true);
+                  }}
+                  className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition font-semibold"
+                >
                   Book Appointment
                 </button>
                 <button className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary/5 transition font-semibold">
@@ -43,13 +74,19 @@ export default function Index() {
                 </button>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary to-accent rounded-2xl p-1">
-              <div className="bg-white rounded-xl p-8 h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Heart className="text-primary w-10 h-10" />
+            <div className="bg-gradient-to-br from-primary to-accent rounded-2xl p-1 overflow-hidden">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-8 h-80 flex items-center justify-center relative overflow-hidden">
+                {/* Decorative background */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary rounded-full"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent rounded-full"></div>
+                </div>
+                <div className="relative text-center z-10">
+                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Heart className="text-primary w-12 h-12" />
                   </div>
-                  <p className="text-muted-foreground text-sm">Professional Healthcare Services</p>
+                  <p className="text-muted-foreground font-semibold">Professional Healthcare Services</p>
+                  <p className="text-sm text-muted-foreground mt-2">Trusted by patients for excellence</p>
                 </div>
               </div>
             </div>
@@ -68,12 +105,16 @@ export default function Index() {
           <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 md:p-12">
             <div className="grid md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-1 flex justify-center">
-                <div className="w-48 h-48 bg-primary rounded-xl flex items-center justify-center">
-                  <Users className="text-white opacity-50 w-20 h-20" />
+                <div className="w-48 h-48 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center relative overflow-hidden">
+                  {/* Decorative background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 opacity-20"></div>
+                  <div className="relative z-10">
+                    <Users className="text-white w-24 h-24" />
+                  </div>
                 </div>
               </div>
               <div className="md:col-span-2">
-                <h4 className="text-2xl font-bold text-foreground mb-2">Doctor at Satya Clinic</h4>
+                <h4 className="text-2xl font-bold text-foreground mb-2">Dr. Expert Physician</h4>
                 <div className="flex items-center gap-2 mb-4">
                   <Award size={20} className="text-accent" />
                   <span className="text-accent font-semibold">Highly Qualified</span>
@@ -116,39 +157,45 @@ export default function Index() {
               {
                 icon: Heart,
                 title: "Cardiac Care",
-                description: "Expert diagnosis and treatment of heart conditions"
+                description: "Expert diagnosis and treatment of heart conditions",
+                color: "from-red-50 to-red-100"
               },
               {
                 icon: Activity,
                 title: "Diabetes Management",
-                description: "Complete diabetes care and blood sugar control"
+                description: "Complete diabetes care and blood sugar control",
+                color: "from-orange-50 to-orange-100"
               },
               {
                 icon: Stethoscope,
                 title: "General Medicine",
-                description: "Comprehensive health checkups and preventive care"
+                description: "Comprehensive health checkups and preventive care",
+                color: "from-green-50 to-green-100"
               },
               {
                 icon: TrendingDown,
                 title: "Health Monitoring",
-                description: "Regular monitoring and follow-up care"
+                description: "Regular monitoring and follow-up care",
+                color: "from-blue-50 to-blue-100"
               },
               {
                 icon: Users,
                 title: "Patient Education",
-                description: "Guidance on lifestyle and disease management"
+                description: "Guidance on lifestyle and disease management",
+                color: "from-purple-50 to-purple-100"
               },
               {
                 icon: Award,
                 title: "Quality Care",
-                description: "Evidence-based treatment protocols"
+                description: "Evidence-based treatment protocols",
+                color: "from-indigo-50 to-indigo-100"
               }
             ].map((service, idx) => {
               const Icon = service.icon;
               return (
-                <div key={idx} className="bg-white rounded-xl p-6 hover:shadow-lg transition">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="text-primary w-6 h-6" />
+                <div key={idx} className="bg-white rounded-xl p-6 hover:shadow-lg transition overflow-hidden group">
+                  <div className={`bg-gradient-to-br ${service.color} rounded-lg p-4 mb-4 group-hover:scale-110 transition`}>
+                    <Icon className="text-primary w-8 h-8" />
                   </div>
                   <h4 className="text-lg font-semibold text-foreground mb-2">{service.title}</h4>
                   <p className="text-muted-foreground text-sm">{service.description}</p>
@@ -169,7 +216,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Address */}
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 text-center">
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 text-center hover:shadow-lg transition">
               <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="text-primary w-7 h-7" />
               </div>
@@ -180,7 +227,7 @@ export default function Index() {
             </div>
 
             {/* Phone */}
-            <div className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl p-8 text-center">
+            <div className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl p-8 text-center hover:shadow-lg transition">
               <div className="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone className="text-accent w-7 h-7" />
               </div>
@@ -208,7 +255,7 @@ export default function Index() {
             </div>
 
             {/* Hours */}
-            <div className="bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl p-8 text-center">
+            <div className="bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl p-8 text-center hover:shadow-lg transition">
               <div className="w-14 h-14 bg-slate-300/50 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="text-foreground w-7 h-7" />
               </div>
@@ -229,7 +276,7 @@ export default function Index() {
           </div>
 
           {/* Map Section */}
-          <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96">
+          <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.7269146833466!2d83.3654!3d26.7598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399410f0f0f0f0f1%3A0x0!2sSatya%20Clinic!5e0!3m2!1sen!2sin!4v1234567890"
               width="100%"
@@ -249,7 +296,13 @@ export default function Index() {
           <p className="text-white/90 mb-8 text-lg">
             Book an appointment with our experienced doctor today
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition font-semibold text-lg">
+          <button 
+            onClick={() => {
+              setShowAuthModal(true);
+              setIsSignUp(true);
+            }}
+            className="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition font-semibold text-lg"
+          >
             Schedule Appointment
           </button>
         </div>
@@ -293,6 +346,144 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Auth Modal */}
+      {showAuthModal && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto">
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-primary to-accent p-6 text-white">
+              <div className="flex items-center justify-between mb-2">
+                <h2 className="text-2xl font-bold">{isSignUp ? "Create Account" : "Sign In"}</h2>
+                <button 
+                  onClick={() => setShowAuthModal(false)}
+                  className="text-white/80 hover:text-white text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+              <p className="text-white/90 text-sm">
+                {isSignUp ? "Book your appointment today" : "Welcome back to Satya Clinic"}
+              </p>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name Field - only for signup */}
+                {isSignUp && (
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Full Name</label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-3.5 w-5 h-5 text-muted-foreground" />
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="John Doe"
+                        className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                        required={isSignUp}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Email Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Email Address</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-3.5 w-5 h-5 text-muted-foreground" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="you@example.com"
+                      className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Password Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-foreground mb-2">Password</label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-3.5 w-5 h-5 text-muted-foreground" />
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      placeholder="••••••••"
+                      className="w-full pl-10 pr-10 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-3.5 text-muted-foreground hover:text-foreground"
+                    >
+                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Confirm Password - only for signup */}
+                {isSignUp && (
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Confirm Password</label>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-3.5 w-5 h-5 text-muted-foreground" />
+                      <input
+                        type={showConfirmPassword ? "text" : "password"}
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                        placeholder="••••••••"
+                        className="w-full pl-10 pr-10 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                        required={isSignUp}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        className="absolute right-3 top-3.5 text-muted-foreground hover:text-foreground"
+                      >
+                        {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-primary to-accent text-white py-2.5 rounded-lg font-semibold hover:shadow-lg transition mt-6"
+                >
+                  {isSignUp ? "Create Account" : "Sign In"}
+                </button>
+              </form>
+
+              {/* Toggle Auth Mode */}
+              <div className="mt-6 pt-6 border-t border-border text-center">
+                <p className="text-muted-foreground text-sm mb-3">
+                  {isSignUp ? "Already have an account?" : "Don't have an account?"}
+                </p>
+                <button
+                  onClick={() => {
+                    setIsSignUp(!isSignUp);
+                    setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+                  }}
+                  className="text-primary font-semibold hover:underline"
+                >
+                  {isSignUp ? "Sign In" : "Sign Up"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
