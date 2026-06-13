@@ -226,7 +226,7 @@ export default function Index() {
                 />
               </div>
               <div className="p-6 bg-white">
-                <h4 className="text-lg font-bold text-foreground mb-2">Patient Waiting Area</h4>
+                <h4 className="text-lg font-bold text-foreground mb-2">Hospital Location</h4>
                 <p className="text-muted-foreground text-sm">Comfortable, clean, and welcoming space for patients with entertainment and seating</p>
               </div>
             </div>
