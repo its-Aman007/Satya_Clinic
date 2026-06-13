@@ -190,7 +190,7 @@ export default function Index() {
             <div className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition">
               <div className="relative h-64 overflow-hidden bg-slate-200">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fccd32e758d67467fbf457a65b27b461c?format=webp&width=800&height=1200"
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Faf040b58e2ec44bc88ce87da278fa731?format=webp&width=800&height=1200"
                   alt="Doctor Cabin"
                   className="w-full h-full object-cover group-hover:scale-105 transition"
                 />
