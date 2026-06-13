@@ -367,7 +367,8 @@ export default function Index() {
 
           {/* Map Section */}
           <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.1678173855425!2d83.3728553!3d26.7390203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145002d30b56f%3A0x106c4dfb4d795adf!2sSatya%20Clinic!5e0!3m2!1sen!2sin!4v1781349173184!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+              src="hhttps://www.google.com/maps/place/P9QF%2BJ5R+Satya+Clinic,+Daudpur,+Gorakhpur,+Uttar+Pradesh+273001/data=!4m2!3m1!1s0x399145002d30b56f:0x106c4dfb4d795adf!18m1!1e1?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI2LjIzLjEYACDXggMqlQEsOTQyNjc3MjcsOTQyOTIxOTUsOTQyOTk1MzIsMTAwNzk2NDk4LDEwMDc5Nzc2MSwxMDA3OTY1MzUsOTQyODA1NzYsMTAwODExOTU5LDk0MjA3Mzk0LDk0MjA3NTA2LDk0MjA4NTA2LDk0MjE4NjUzLDk0MjI5ODM5LDk0Mjc1MTY4LDk0Mjc5NjE5LDEwMDc5MjU2OEICSU4%3D&skid=fb53f39b-9460-4f89-9f36-3694cfd0bf21"
               width="100%"
               height="100%"
               style={{ border: 0 }}
