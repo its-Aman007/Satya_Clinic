@@ -140,7 +140,7 @@ export default function Index() {
               <div className="md:col-span-1 flex justify-center">
                 <div className="w-48 h-56 bg-gradient-to-br from-primary to-accent rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Faf040b58e2ec44bc88ce87da278fa731?format=webp&width=800&height=1200"
+                    src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200"
                     alt="Doctor at Satya Clinic"
                     className="w-full h-full object-cover"
                   />
