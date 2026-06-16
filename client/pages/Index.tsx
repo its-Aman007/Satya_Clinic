@@ -31,7 +31,36 @@ export default function Index() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Define data before hooks
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", phone: "", password: "" });
+    setShowAuthModal(false);
+  };
+
+  const doctors = [
+    {
+      name: "Dr. Spd Dwivedi",
+      specialty: "Cardiologist",
+      qualification: "MD (Cardiology)",
+      experience: "15+ Years",
+      image: "https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200",
+    },
+  ];
+
   const testimonials = [
     {
       name: "Rajesh Kumar",
@@ -53,16 +82,6 @@ export default function Index() {
     },
   ];
 
-  const doctors = [
-    {
-      name: "Dr. Spd Dwivedi",
-      specialty: "Cardiologist",
-      qualification: "MD (Cardiology)",
-      experience: "15+ Years",
-      image: "https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200",
-    },
-  ];
-
   const services = [
     { icon: Heart, title: "Cardiac Care", desc: "Advanced heart disease treatment" },
     { icon: Brain, title: "Neurology", desc: "Specialized neurological care" },
@@ -71,34 +90,6 @@ export default function Index() {
     { icon: Zap, title: "Emergency Care", desc: "24/7 emergency services" },
     { icon: Shield, title: "Health Screening", desc: "Advanced diagnostic tests" },
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Auto-scroll testimonials every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", password: "" });
-    setShowAuthModal(false);
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -422,36 +413,19 @@ export default function Index() {
               <p className="text-gray-600">{testimonials[testimonialIndex].city}</p>
             </div>
 
-            {/* Navigation Controls */}
-            <div className="flex justify-center gap-4 mb-8">
+            <div className="flex justify-center gap-4">
               <button
                 onClick={() => setTestimonialIndex((testimonialIndex - 1 + testimonials.length) % testimonials.length)}
                 className="p-2 hover:bg-gray-100 rounded-full transition"
               >
-                <ChevronLeft className="text-primary" size={24} />
+                
               </button>
               <button
                 onClick={() => setTestimonialIndex((testimonialIndex + 1) % testimonials.length)}
                 className="p-2 hover:bg-gray-100 rounded-full transition"
               >
-                <ChevronRight className="text-primary" size={24} />
+                
               </button>
-            </div>
-
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setTestimonialIndex(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === testimonialIndex
-                      ? "bg-primary w-3 h-3"
-                      : "bg-gray-300 w-2 h-2 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>
