@@ -60,7 +60,7 @@ export default function Index() {
       name: "Dr. Spd Dwivedi",
       specialty: "Cardiologist",
       qualification: "MD (Cardiology)",
-      experience: "15+ Years",
+      experience: "15+ years",
       image: "https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200",
     },
   ];
