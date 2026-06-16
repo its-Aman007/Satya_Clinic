@@ -418,13 +418,13 @@ export default function Index() {
                 onClick={() => setTestimonialIndex((testimonialIndex - 1 + testimonials.length) % testimonials.length)}
                 className="p-2 hover:bg-gray-100 rounded-full transition"
               >
-                
+                <ChevronLeft className="text-primary" size={24} />
               </button>
               <button
                 onClick={() => setTestimonialIndex((testimonialIndex + 1) % testimonials.length)}
                 className="p-2 hover:bg-gray-100 rounded-full transition"
               >
-                
+                <ChevronRight className="text-primary" size={24} />
               </button>
             </div>
           </div>
