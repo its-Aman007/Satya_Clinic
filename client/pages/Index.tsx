@@ -261,7 +261,7 @@ export default function Index() {
                 <div className="grid md:grid-cols-2 gap-8 p-8">
                   <div className="relative h-96 rounded-xl overflow-hidden">
                     <img
-                      src={doctor.image}
+                      src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fb13c2913d16e49b9b7af343c27b4206b?format=webp&width=800&height=1200"
                       alt={doctor.name}
                       className="w-full h-full object-cover hover:scale-105 transition"
                     />
@@ -312,6 +312,24 @@ export default function Index() {
       <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Clinic Logo */}
+            <div className="inline-block mb-6 p-4 bg-white rounded-full shadow-lg border-4 border-primary">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Heart shape with medical cross */}
+                <circle cx="40" cy="40" r="38" stroke="#0F6CBD" strokeWidth="2" fill="#E8F4FF"/>
+
+                {/* Heart symbol */}
+                <path d="M40 62C40 62 24 48 24 38C24 31 29 26 34 26C37 26 40 28 40 28C40 28 43 26 46 26C51 26 56 31 56 38C56 48 40 62 40 62Z"
+                      fill="#0F6CBD"/>
+
+                {/* Medical cross */}
+                <g transform="translate(40, 40)">
+                  <rect x="-3" y="-12" width="6" height="24" fill="white"/>
+                  <rect x="-12" y="-3" width="24" height="6" fill="white"/>
+                </g>
+              </svg>
+            </div>
+
             <h2 className="text-4xl font-bold text-foreground mb-4">Our Services</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Comprehensive healthcare services tailored to your medical needs
