@@ -37,6 +37,14 @@ export default function Index() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const TOTAL = 3;
+    const timer = setInterval(() => {
+      setTestimonialIndex((prev) => (prev + 1) % TOTAL);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -411,6 +419,20 @@ export default function Index() {
               <p className="text-gray-600">{testimonials[testimonialIndex].city}</p>
             </div>
 
+            <div className="flex justify-center gap-2 mt-4">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setTestimonialIndex(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    i === testimonialIndex
+                      ? "bg-primary scale-125"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
