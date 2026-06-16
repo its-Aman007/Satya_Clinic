@@ -8,8 +8,6 @@ import {
   Clock,
   Star,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   CheckCircle,
   Stethoscope,
   Pill,
@@ -413,20 +411,6 @@ export default function Index() {
               <p className="text-gray-600">{testimonials[testimonialIndex].city}</p>
             </div>
 
-            <div className="flex justify-center gap-4">
-              <button
-                onClick={() => setTestimonialIndex((testimonialIndex - 1 + testimonials.length) % testimonials.length)}
-                className="p-2 hover:bg-gray-100 rounded-full transition"
-              >
-                <ChevronLeft className="text-primary" size={24} />
-              </button>
-              <button
-                onClick={() => setTestimonialIndex((testimonialIndex + 1) % testimonials.length)}
-                className="p-2 hover:bg-gray-100 rounded-full transition"
-              >
-                <ChevronRight className="text-primary" size={24} />
-              </button>
-            </div>
           </div>
         </div>
       </section>
