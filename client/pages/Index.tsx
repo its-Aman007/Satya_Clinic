@@ -5,12 +5,14 @@ import {
   Clock,
   Heart,
   MapPin,
+  Menu,
   MessageCircle,
   Phone,
   Pill,
   Shield,
   Star,
   Stethoscope,
+  X,
   Zap
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -26,6 +28,7 @@ export default function Index() {
   });
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,17 +103,17 @@ export default function Index() {
       {/* Sticky Navigation */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
+          isScrolled || mobileMenuOpen
             ? "bg-white shadow-lg"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
               <Heart className="text-white w-6 h-6" />
             </div>
-            <span className="font-bold text-xl text-primary hidden sm:inline">Satya Clinic</span>
+            <span className="font-bold text-lg text-primary">Satya Clinic</span>
           </div>
 
           <div className="hidden md:flex gap-8 text-sm font-medium">
@@ -120,54 +123,86 @@ export default function Index() {
             <a href="#contact" className="text-foreground hover:text-primary transition">Contact</a>
           </div>
 
-          <button
-            onClick={() => {
-              setShowAuthModal(true);
-              setIsSignUp(true);
-            }}
-            className="bg-primary text-white px-6 py-2 rounded-lg text-sm font-semibold hover:shadow-lg transition"
-          >
-            Book Now
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => {
+                setShowAuthModal(true);
+                setIsSignUp(true);
+              }}
+              className="bg-primary text-white px-4 md:px-6 py-2 rounded-lg text-sm font-semibold hover:shadow-lg transition"
+            >
+              Book Now
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="md:hidden p-2 rounded-lg text-primary hover:bg-primary/10 transition"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+            <div className="flex flex-col px-4 py-3 gap-1">
+              {[
+                { label: "Doctors", href: "#doctors" },
+                { label: "Services", href: "#services" },
+                { label: "Testimonials", href: "#testimonials" },
+                { label: "Contact", href: "#contact" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-foreground hover:text-primary hover:bg-primary/5 font-medium text-sm py-3 px-3 rounded-lg transition"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen bg-gradient-to-br from-blue-50 to-white pt-20 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-blue-50 to-white pt-20 overflow-hidden">
         {/* Background gradient blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -ml-48 -mb-48"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center min-h-[calc(100vh-5rem)]">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full py-8 md:py-0">
             {/* Left Column */}
             <div className="z-10">
               <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
                 <span className="text-primary font-semibold text-sm">Expert Healthcare Solutions</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-tight">
                 Expert Healthcare You Can <span className="text-primary">Trust</span>
               </h1>
 
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
                 Comprehensive medical care, specialist consultations, preventive health checkups, and advanced treatment solutions tailored for your wellbeing.
               </p>
 
-              <div className="flex gap-4 mb-12">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
                 <button
                   onClick={() => {
                     setShowAuthModal(true);
                     setIsSignUp(true);
                   }}
-                  className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition flex items-center gap-2"
+                  className="bg-primary text-white px-6 md:px-8 py-3 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition flex items-center justify-center gap-2"
                 >
                   Book Appointment
                   <ArrowRight size={20} />
                 </button>
                 <a
                   href="tel:9336757991"
-                  className="border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary/5 transition flex items-center gap-2"
+                  className="border-2 border-primary text-primary px-6 md:px-8 py-3 rounded-lg font-semibold hover:bg-primary/5 transition flex items-center justify-center gap-2"
                 >
                   <Phone size={20} />
                   Call Now
@@ -175,7 +210,7 @@ export default function Index() {
               </div>
 
               {/* Trust Badges */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {[
                   "Experienced Doctors",
                   "Same Day Appointments",
@@ -183,7 +218,7 @@ export default function Index() {
                   "Trusted by Patients",
                 ].map((badge) => (
                   <div key={badge} className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-secondary w-5 h-5" />
+                    <CheckCircle className="text-secondary w-5 h-5 flex-shrink-0" />
                     <span className="text-gray-700 font-medium">{badge}</span>
                   </div>
                 ))}
@@ -191,7 +226,7 @@ export default function Index() {
             </div>
 
             {/* Right Column - Doctor Image */}
-            <div className="relative">
+            <div className="relative hidden md:block">
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Faf040b58e2ec44bc88ce87da278fa731?format=webp&width=800&height=1200"
@@ -202,9 +237,9 @@ export default function Index() {
               </div>
 
               {/* Floating Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-2xl max-w-xs">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-primary">
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 md:p-6 shadow-2xl max-w-xs">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-4 border-primary flex-shrink-0">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200"
                       alt="Dr. Spd Dwivedi"
@@ -228,9 +263,9 @@ export default function Index() {
       </section>
 
       {/* Statistics Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary to-secondary py-12 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
               { number: "10,000+", label: "Patients Treated" },
               { number: "20+", label: "Specialist Doctors" },
@@ -238,8 +273,8 @@ export default function Index() {
               { number: "98%", label: "Patient Satisfaction" },
             ].map((stat) => (
               <div key={stat.label} className="text-center text-white">
-                <h3 className="text-4xl font-bold mb-2">{stat.number}</h3>
-                <p className="text-white/90 font-medium">{stat.label}</p>
+                <h3 className="text-2xl md:text-4xl font-bold mb-2">{stat.number}</h3>
+                <p className="text-white/90 font-medium text-sm md:text-base">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -247,23 +282,23 @@ export default function Index() {
       </section>
 
       {/* Doctor Showcase Section */}
-      <section id="doctors" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="doctors" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Our Expert Doctors</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">Our Expert Doctors</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Highly qualified specialists committed to providing the best healthcare solutions
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 gap-8">
+          <div className="grid gap-8">
             {doctors.map((doctor) => (
               <div
                 key={doctor.name}
                 className="bg-gradient-to-br from-blue-50 to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-gray-200"
               >
-                <div className="grid md:grid-cols-2 gap-8 p-8">
-                  <div className="relative h-96 rounded-xl overflow-hidden">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8 p-6 md:p-8">
+                  <div className="relative h-64 md:h-96 rounded-xl overflow-hidden">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fb13c2913d16e49b9b7af343c27b4206b?format=webp&width=800&height=1200"
                       alt={doctor.name}
@@ -274,10 +309,10 @@ export default function Index() {
                     <div className="inline-block w-fit px-3 py-1 bg-primary/10 rounded-full mb-4">
                       <span className="text-primary font-semibold text-sm">Featured Doctor</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-foreground mb-2">{doctor.name}</h3>
-                    <p className="text-2xl text-primary font-semibold mb-4">{doctor.specialty}</p>
-                    
-                    <div className="space-y-3 mb-8">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">{doctor.name}</h3>
+                    <p className="text-xl md:text-2xl text-primary font-semibold mb-4">{doctor.specialty}</p>
+
+                    <div className="space-y-3 mb-6 md:mb-8">
                       <p className="text-gray-700">
                         <span className="font-semibold">Qualification:</span> {doctor.qualification}
                       </p>
@@ -313,9 +348,9 @@ export default function Index() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
+      <section id="services" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             {/* Clinic Logo */}
             <div className="inline-block mb-6 p-4 bg-white rounded-full shadow-lg border-4 border-primary">
               <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -334,13 +369,13 @@ export default function Index() {
               </svg>
             </div>
 
-            <h2 className="text-4xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Comprehensive healthcare services tailored to your medical needs
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service) => {
               const Icon = service.icon;
               return (
@@ -361,10 +396,10 @@ export default function Index() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2F87e10399d7fc4ea79452e701a2ea0a00?format=webp&width=800&height=1200"
                 alt="Why Choose Us"
@@ -373,7 +408,7 @@ export default function Index() {
             </div>
 
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-8">Why Choose Satya Clinic?</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-6 md:mb-8">Why Choose Satya Clinic?</h2>
               <div className="space-y-6">
                 {[
                   "Experienced Specialists",
@@ -394,21 +429,21 @@ export default function Index() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
+      <section id="testimonials" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Patient Testimonials</h2>
-            <p className="text-lg text-gray-600">Trusted by thousands of satisfied patients</p>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">Patient Testimonials</h2>
+            <p className="text-base md:text-lg text-gray-600">Trusted by thousands of satisfied patients</p>
           </div>
 
-          <div className="relative bg-white rounded-2xl shadow-lg p-12 border border-gray-200">
+          <div className="relative bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 border border-gray-200">
             <div className="text-center mb-8">
               <div className="flex justify-center gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={24} className="fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-xl text-gray-700 mb-6 italic">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 italic">
                 "{testimonials[testimonialIndex].text}"
               </p>
               <p className="font-bold text-foreground text-lg">
@@ -436,10 +471,10 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary to-secondary py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready for Expert Healthcare?</h2>
-          <p className="text-white/90 text-lg mb-8">Book your appointment today or call us for emergency services</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">Ready for Expert Healthcare?</h2>
+          <p className="text-white/90 text-base md:text-lg mb-6 md:mb-8">Book your appointment today or call us for emergency services</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => {
@@ -474,14 +509,14 @@ export default function Index() {
       </a>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="contact" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Contact Us</h2>
-            <p className="text-lg text-gray-600">Get in touch with us for any medical concerns</p>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">Contact Us</h2>
+            <p className="text-base md:text-lg text-gray-600">Get in touch with us for any medical concerns</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid sm:grid-cols-3 gap-6 md:gap-8 mb-12">
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-8 text-center border border-primary/20">
               <Phone className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-bold text-foreground mb-2">Phone</h3>
@@ -520,39 +555,64 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-slate-900 text-white py-10 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="font-bold text-lg mb-4">Satya Clinic</h4>
-              <p className="text-white/70 text-sm">Providing premium healthcare services with excellence and compassion.</p>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                  <Heart className="text-white w-4 h-4" />
+                </div>
+                <h4 className="font-bold text-lg">Satya Clinic</h4>
+              </div>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Providing premium healthcare services with excellence and compassion.
+              </p>
             </div>
+
             <div>
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-white/70">
-                <li><a href="#" className="hover:text-white transition">Cardiology</a></li>
-                <li><a href="#" className="hover:text-white transition">General Medicine</a></li>
-                <li><a href="#" className="hover:text-white transition">Health Checkups</a></li>
+              <h4 className="font-bold mb-4 text-base">Services</h4>
+              <ul className="space-y-3 text-sm text-white/70">
+                <li><a href="#services" className="hover:text-white transition">Cardiology</a></li>
+                <li><a href="#services" className="hover:text-white transition">General Medicine</a></li>
+                <li><a href="#services" className="hover:text-white transition">Health Checkups</a></li>
               </ul>
             </div>
+
             <div>
-              <h4 className="font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-white/70">
+              <h4 className="font-bold mb-4 text-base">Quick Links</h4>
+              <ul className="space-y-3 text-sm text-white/70">
                 <li><a href="#doctors" className="hover:text-white transition">Our Doctors</a></li>
                 <li><a href="#services" className="hover:text-white transition">Services</a></li>
+                <li><a href="#testimonials" className="hover:text-white transition">Testimonials</a></li>
                 <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
               </ul>
             </div>
+
             <div>
-              <h4 className="font-bold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-white/70">
-                <li><a href="tel:9336757991" className="hover:text-white transition">9336757991</a></li>
-                <li><a href="tel:05512201544" className="hover:text-white transition">0551-2201544</a></li>
-                <li>Gorakhpur, UP</li>
+              <h4 className="font-bold mb-4 text-base">Contact</h4>
+              <ul className="space-y-3 text-sm text-white/70">
+                <li>
+                  <a href="tel:9336757991" className="hover:text-white transition flex items-center gap-2">
+                    <Phone size={14} className="flex-shrink-0" />
+                    93367 57991
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:05512201544" className="hover:text-white transition flex items-center gap-2">
+                    <Phone size={14} className="flex-shrink-0" />
+                    0551-2201544
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MapPin size={14} className="flex-shrink-0 text-white/70" />
+                  Maya Bhavan, Gorakhpur, UP
+                </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 text-center text-white/60 text-sm">
+
+          <div className="border-t border-white/10 pt-6 text-center text-white/60 text-sm">
             <p>&copy; 2026 Satya Clinic. All rights reserved. | Medical Care Excellence</p>
           </div>
         </div>
