@@ -81,7 +81,7 @@ export default function Index() {
     {
       name: "Amit Patel",
       rating: 5,
-      text: "Best cardiac care in the city. Dr. Drivedi's expertise is outstanding.",
+      text: "Best cardiac care in the city. Dr. Spd Dwivedi's expertise is outstanding.",
       city: "Gorakhpur",
     },
   ];
