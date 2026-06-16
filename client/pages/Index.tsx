@@ -53,7 +53,7 @@ export default function Index() {
 
   const doctors = [
     {
-      name: "Dr. Spd Drivedi",
+      name: "Dr. Spd Dwivedi",
       specialty: "Cardiologist",
       qualification: "MD (Cardiology)",
       experience: "15+ Years",
@@ -65,7 +65,7 @@ export default function Index() {
     {
       name: "Rajesh Kumar",
       rating: 5,
-      text: "Excellent service and professional doctors. Dr. Spd Drivedi is highly knowledgeable and caring.",
+      text: "Excellent service and professional doctors. Dr. Spd Dwivedi is highly knowledgeable and caring.",
       city: "Gorakhpur",
     },
     {
@@ -203,12 +203,12 @@ export default function Index() {
                   <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-primary">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200"
-                      alt="Dr. Spd Drivedi"
+                      alt="Dr. Spd Dwivedi"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
-                    <p className="font-bold text-foreground">Dr. Spd Drivedi</p>
+                    <p className="font-bold text-foreground">Dr. Spd Dwivedi</p>
                     <p className="text-sm text-gray-600">Cardiologist</p>
                     <div className="flex items-center gap-1 mt-1">
                       {[...Array(5)].map((_, i) => (
