@@ -484,7 +484,7 @@ export default function Index() {
           </div>
 
           {/* Map */}
-          <<div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
+          <div className="mt-12 bg-slate-100 rounded-xl overflow-hidden h-96 shadow-lg">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.1676680143755!2d83.37028037443439!3d26.73902506753506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145002d30b56f%3A0x106c4dfb4d795adf!2sSatya%20Clinic!5e0!3m2!1sen!2sin!4v1781350096077!5m2!1sen!2sin"
     width="100%"
