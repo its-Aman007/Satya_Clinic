@@ -1,21 +1,19 @@
-import { useState, useEffect } from "react";
 import {
-  Heart,
-  Award,
-  Users,
-  MapPin,
-  Phone,
-  Clock,
-  Star,
   ArrowRight,
-  CheckCircle,
-  Stethoscope,
-  Pill,
   Brain,
-  Zap,
-  Shield,
+  CheckCircle,
+  Clock,
+  Heart,
+  MapPin,
   MessageCircle,
+  Phone,
+  Pill,
+  Shield,
+  Star,
+  Stethoscope,
+  Zap
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Index() {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -62,7 +60,7 @@ export default function Index() {
       name: "Dr. Spd Dwivedi",
       specialty: "Cardiologist",
       qualification: "MD (Cardiology)",
-      experience: "15+ Years",
+      experience: "15+ years",
       image: "https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200",
     },
   ];
