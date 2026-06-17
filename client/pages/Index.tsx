@@ -61,8 +61,8 @@ export default function Index() {
   const doctors = [
     {
       name: "Dr. Spd Dwivedi",
-      specialty: "Cardiologist",
-      qualification: "MD (Cardiology)",
+      specialty: "Cardiology, Diabetology & Gastroenterology Specialist",
+      qualification: "Cardio Diabetic (PHFI & WHO) | Diabetic Management (Diabetic Federation)",
       experience: "15+ years",
       image: "https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200",
     },
@@ -79,13 +79,13 @@ export default function Index() {
       name: "Priya Sharma",
       rating: 5,
       text: "The clinic is very clean and well-maintained. Staff is courteous and the treatment is effective.",
-      city: "Gorakhpur",
+      city: "KushiNagar",
     },
     {
       name: "Amit Patel",
       rating: 5,
       text: "Best cardiac care in the city. Dr. Spd Dwivedi's expertise is outstanding.",
-      city: "Gorakhpur",
+      city: "Banaras",
     },
   ];
 
