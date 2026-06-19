@@ -61,9 +61,8 @@ export default function Index() {
   const doctors = [
     {
       name: "Dr. Spd Dwivedi",
-      specialty: "Cardiology, Diabetology & Gastroenterology Specialist",
-      qualification: "Cardio Diabetic (PHFI & WHO) | Diabetic Management (Diabetic Federation)",
-      experience: "15+ years",
+      specialty: "Cardiology, Diabetology & Gastroenterology Speciality",
+      experience: "20+ years",
       image: "https://cdn.builder.io/api/v1/image/assets%2Fa145b7c77dfe4b7bb5cdc4ff5b1f095f%2Fff9a963d6d5844cba9023593023cb0f0?format=webp&width=800&height=1200",
     },
   ];
@@ -94,8 +93,8 @@ export default function Index() {
     { icon: Brain, title: "Neurology", desc: "Specialized neurological care" },
     { icon: Pill, title: "Diabetes Management", desc: "Comprehensive diabetes care" },
     { icon: Stethoscope, title: "General Medicine", desc: "Preventive health checkups" },
-    { icon: Zap, title: "Emergency Care", desc: "24/7 emergency services" },
-    { icon: Shield, title: "Health Screening", desc: "Advanced diagnostic tests" },
+    { icon: Zap, title: "Fever, Autoimmune Arthritic Patient", desc: "Health support" },
+    { icon: Shield, title: "Gastro - Hepatology", desc: "Specialized gastroenterology and hepatology care" },
   ];
 
   return (
@@ -265,12 +264,11 @@ export default function Index() {
       {/* Statistics Section */}
       <section className="bg-gradient-to-r from-primary to-secondary py-12 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-16">
             {[
-              { number: "10,000+", label: "Patients Treated" },
-              { number: "20+", label: "Specialist Doctors" },
-              { number: "15+", label: "Years Experience" },
-              { number: "98%", label: "Patient Satisfaction" },
+              { number: "1.5 lakhs+", label: "Patients Treated" },
+              { number: "20+", label: "Years Experience" },
+              { number: "95-98%", label: "Patient Satisfaction" },
             ].map((stat) => (
               <div key={stat.label} className="text-center text-white">
                 <h3 className="text-2xl md:text-4xl font-bold mb-2">{stat.number}</h3>
@@ -314,7 +312,7 @@ export default function Index() {
 
                     <div className="space-y-3 mb-6 md:mb-8">
                       <p className="text-gray-700">
-                        <span className="font-semibold">Qualification:</span> {doctor.qualification}
+                        {/* <span className="font-semibold">Qualification:</span> {doctor.qualification} */}
                       </p>
                       <p className="text-gray-700">
                         <span className="font-semibold">Experience:</span> {doctor.experience}
@@ -415,7 +413,8 @@ export default function Index() {
                   "Advanced Diagnostics",
                   "Personalized Treatment",
                   "Affordable Healthcare",
-                  "Emergency Support",
+                  "Easy Availability",
+                  "Cordial Atmosphere & Responsive behavior environment",
                 ].map((benefit) => (
                   <div key={benefit} className="flex items-start gap-4">
                     <CheckCircle className="text-secondary w-6 h-6 mt-1 flex-shrink-0" />
@@ -534,7 +533,7 @@ export default function Index() {
             <div className="bg-gradient-to-br from-blue-100/10 to-blue-100/5 rounded-xl p-8 text-center border border-gray-200">
               <Clock className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-lg font-bold text-foreground mb-2">Hours</h3>
-              <p className="text-gray-600">Mon-Fri: 9 AM - 6 PM</p>
+              <p className="text-gray-600">Mon-Fri: 11 AM - 9 PM</p>
             </div>
           </div>
 
